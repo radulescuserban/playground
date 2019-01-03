@@ -46,20 +46,23 @@ class DashboardViewModel : ViewModel() {
                     response.body()?.data?.items?.forEach { imgurItem: ImgurItem ->
                         if (imgurItem.isAlbum != null && !imgurItem.isAlbum) {
                             val imgurImageTemp = ImgurImage(
+                                imgurItem.id,
                                 imgurItem.title, imgurItem.description,
                                 null, imgurItem.link, imgurItem.inGallery,
                                 imgurItem.upVotes, imgurItem.downVotes, imgurItem.points,
-                                imgurItem.views)
+                                imgurItem.views
+                            )
 
                             imagesList.add(imgurImageTemp)
                         } else {
                             val galleryList = imgurItem.images
                             galleryList?.let {
                                 galleryList.forEach { imgurImage ->
-                                        imgurImage.description = imgurItem.title
-                                        imgurImage.downVotes = imgurItem.downVotes
-                                        imgurImage.upVotes = imgurItem.upVotes
-                                        imgurImage.points = imgurItem.points
+                                    imgurImage.id = imgurItem.id
+                                    imgurImage.description = imgurItem.title
+                                    imgurImage.downVotes = imgurItem.downVotes
+                                    imgurImage.upVotes = imgurItem.upVotes
+                                    imgurImage.points = imgurItem.points
                                 }
 
                                 imagesList.addAll(galleryList.asIterable())

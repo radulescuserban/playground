@@ -8,6 +8,7 @@ object Constants {
     const val IMGUR_IMAGE_TYPE_PNG = "image/png"
 
     // Bundle
+    const val KEY_IMGUR_ID = "KEY_ID"
     const val KEY_IMGUR_URL = "KEY_URL"
     const val KEY_IMGUR_POINTS = "KEY_POINTS"
     const val KEY_IMGUR_UPS = "KEY_UPS"

@@ -39,6 +39,7 @@ class ImageAdapter(private val images: List<ImgurImage?>?) : RecyclerView.Adapte
         val extras = FragmentNavigatorExtras(imageViewHolder.itemView.imgurIv to "image_header")
         val bundle = Bundle()
         bundle.putString(Constants.KEY_IMGUR_URL, images?.get(p1)?.link)
+        images?.get(p1)?.id?.let { bundle.putString(Constants.KEY_IMGUR_ID, it) }
         images?.get(p1)?.downVotes?.let { bundle.putInt(Constants.KEY_IMGUR_DOWNS, it) }
         images?.get(p1)?.upVotes?.let { bundle.putInt(Constants.KEY_IMGUR_UPS, it) }
         images?.get(p1)?.points?.let { bundle.putInt(Constants.KEY_IMGUR_POINTS, it) }

@@ -51,11 +51,13 @@ class DetailsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DetailsViewModel::class.java)
+        val galleryId = arguments?.getString(Constants.KEY_IMGUR_ID, "")
         val url = arguments?.getString(Constants.KEY_IMGUR_URL)
         val upVotes = arguments?.getInt(Constants.KEY_IMGUR_UPS, 0)
         val downVotes = arguments?.getInt(Constants.KEY_IMGUR_DOWNS, 0)
         val totalPoints = arguments?.getInt(Constants.KEY_IMGUR_POINTS, 0)
         val totalViews = arguments?.getInt(Constants.KEY_IMGUR_VIEWS, 0)
+        loadTags(galleryId)
         loadVotes(upVotes, downVotes, totalPoints, totalViews)
         loadImageHeader(url)
         animateViews()
@@ -69,6 +71,10 @@ class DetailsFragment : Fragment() {
             .applyDefaultRequestOptions(requestOptions)
             .load(url)
             .into(headerIv)
+    }
+
+    private fun loadTags(galleryId: String?) {
+
     }
 
     private fun loadVotes(upVotes: Int?, downVotes: Int?, totalPoints: Int?, totalViews: Int?) {

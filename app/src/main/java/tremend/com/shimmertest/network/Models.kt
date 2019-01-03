@@ -6,6 +6,7 @@ data class BaseResponse<T>(val data: T, val success: Boolean, val status: String
 
 
 data class ImgurImage(
+    var id: String?,
     var title: String?, var description: String?, val type: String?,
     var link: String?,
     @SerializedName("in_gallery") val inGallery: Boolean?,
@@ -16,7 +17,7 @@ data class ImgurImage(
 )
 
 data class ImgurItem(
-    val id: String?,
+    var id: String?,
     val title: String?, val description: String?,
     @SerializedName("is_album") val isAlbum: Boolean?,
     val link: String?,
