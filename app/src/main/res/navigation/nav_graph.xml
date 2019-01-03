@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment"
+              android:name="tremend.com.shimmertest.ui.home.HomeFragment"
+              android:label="fragment_home"
+              tools:layout="@layout/fragment_home"/>
+    <fragment android:id="@+id/dashboardFragment"
+              android:name="tremend.com.shimmertest.ui.dashboard.DashboardFragment"
+              android:label="dashboard_fragment"
+              tools:layout="@layout/fragment_dashboard">
+        <action android:id="@+id/action_dashboardFragment_to_detailsFragment"
+                app:destination="@id/detailsFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <argument android:name="imageUrl" app:argType="string" android:defaultValue='""'/>
+    </fragment>
+    <fragment android:id="@+id/notificationsFragment"
+              android:name="tremend.com.shimmertest.ui.notifications.NotificationsFragment"
+              android:label="notifications_fragment"
+              tools:layout="@layout/fragment_notifications"/>
+    <fragment android:id="@+id/detailsFragment"
+              android:name="tremend.com.shimmertest.ui.details.DetailsFragment"
+              android:label="details_fragment"
+              tools:layout="@layout/fragment_details"/>
+</navigation>
