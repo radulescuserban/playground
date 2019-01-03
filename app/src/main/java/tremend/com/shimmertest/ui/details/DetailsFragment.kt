@@ -9,6 +9,8 @@ import android.support.transition.ChangeBounds
 import android.support.transition.TransitionInflater
 import android.support.v4.app.Fragment
 import android.support.v4.view.animation.FastOutLinearInInterpolator
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_details.*
 
 import tremend.com.shimmertest.R
 import tremend.com.shimmertest.common.Constants
+import tremend.com.shimmertest.network.ImgurTag
 
 class DetailsFragment : Fragment() {
 
@@ -78,6 +81,7 @@ class DetailsFragment : Fragment() {
     private fun loadTags(galleryId: String?) {
         viewModel.getTagsLiveData(galleryId).observe(this, Observer {
             if(activity != null) {
+                setupTagsRv(it)
                 Toast.makeText(activity, "Yey we have tags", Toast.LENGTH_SHORT).show()
             }
         })
@@ -117,5 +121,12 @@ class DetailsFragment : Fragment() {
             duration = 1000
             start()
         }
+    }
+
+    private fun setupTagsRv(tags: List<ImgurTag?>?) {
+        val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        tagsRv.layoutManager = linearLayoutManager
+        val adapter = TagsAdapter(tags)
+        tagsRv.adapter = adapter
     }
 }
