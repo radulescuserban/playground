@@ -48,7 +48,8 @@ class DashboardViewModel : ViewModel() {
                             val imgurImageTemp = ImgurImage(
                                 imgurItem.title, imgurItem.description,
                                 null, imgurItem.link, imgurItem.inGallery,
-                                imgurItem.upVotes, imgurItem.downVotes, imgurItem.points)
+                                imgurItem.upVotes, imgurItem.downVotes, imgurItem.points,
+                                imgurItem.views)
 
                             imagesList.add(imgurImageTemp)
                         } else {

@@ -55,7 +55,8 @@ class DetailsFragment : Fragment() {
         val upVotes = arguments?.getInt(Constants.KEY_IMGUR_UPS, 0)
         val downVotes = arguments?.getInt(Constants.KEY_IMGUR_DOWNS, 0)
         val totalPoints = arguments?.getInt(Constants.KEY_IMGUR_POINTS, 0)
-        loadVotes(upVotes, downVotes, totalPoints)
+        val totalViews = arguments?.getInt(Constants.KEY_IMGUR_VIEWS, 0)
+        loadVotes(upVotes, downVotes, totalPoints, totalViews)
         loadImageHeader(url)
         animateViews()
     }
@@ -70,19 +71,22 @@ class DetailsFragment : Fragment() {
             .into(headerIv)
     }
 
-    private fun loadVotes(upVotes: Int?, downVotes: Int?, totalPoints: Int?) {
+    private fun loadVotes(upVotes: Int?, downVotes: Int?, totalPoints: Int?, totalViews: Int?) {
         upVotesTv.text = upVotes?.toString()
         downVotesTv.text = downVotes?.toString()
         totalPointsTv.text = totalPoints?.toString()
+        totalViewsTv.text = totalViews?.toString()
     }
 
     private fun animateViews() {
         crossFade(upVotesTv)
         crossFade(downVotesTv)
         crossFade(totalPointsTv)
+        crossFade(totalViewsTv)
         translateView(upVotesTv, 150f)
         translateView(downVotesTv, 150f)
         translateView(totalPointsTv, -150f)
+        translateView(totalViewsTv, -150f)
     }
 
     private fun crossFade(view: View) {

@@ -12,4 +12,5 @@ object Constants {
     const val KEY_IMGUR_POINTS = "KEY_POINTS"
     const val KEY_IMGUR_UPS = "KEY_UPS"
     const val KEY_IMGUR_DOWNS = "KEY_DOWNS"
+    const val KEY_IMGUR_VIEWS = "KEY_VIEWS"
 }

@@ -10,7 +10,8 @@ data class ImgurImage(var title: String?, var description: String?, val type: St
                       @SerializedName("in_gallery") val inGallery: Boolean?,
                       @SerializedName("ups") var upVotes: Int?,
                       @SerializedName("downs") var downVotes: Int?,
-                      var points: Int?)
+                      var points: Int?,
+                      var views: Int?)
 
 data class ImgurItem(val title: String?, val description: String?,
                      @SerializedName("is_album") val isAlbum: Boolean?,
@@ -18,7 +19,8 @@ data class ImgurItem(val title: String?, val description: String?,
                      @SerializedName("in_gallery") val inGallery: Boolean?, val images: List<ImgurImage>?,
                      @SerializedName("ups") var upVotes: Int?,
                      @SerializedName("downs") var downVotes: Int?,
-                     var points: Int?)
+                     var points: Int?,
+                     var views: Int?)
 
 data class ImgurData(val name: String?, @SerializedName("display_name") val displayName: String?,
                      @SerializedName("background_is_animated") val backgroundIsAnimated: Boolean?,

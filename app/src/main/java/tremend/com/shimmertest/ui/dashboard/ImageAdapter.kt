@@ -42,6 +42,7 @@ class ImageAdapter(private val images: List<ImgurImage?>?) : RecyclerView.Adapte
         images?.get(p1)?.downVotes?.let { bundle.putInt(Constants.KEY_IMGUR_DOWNS, it) }
         images?.get(p1)?.upVotes?.let { bundle.putInt(Constants.KEY_IMGUR_UPS, it) }
         images?.get(p1)?.points?.let { bundle.putInt(Constants.KEY_IMGUR_POINTS, it) }
+        images?.get(p1)?.views?.let { bundle.putInt(Constants.KEY_IMGUR_VIEWS, it) }
         imageViewHolder.itemView.detailsBtn.setOnClickListener { it.findNavController().navigate(R.id.action_dashboardFragment_to_detailsFragment,
             bundle, null, extras) }
 
