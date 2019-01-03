@@ -13,4 +13,7 @@ interface RetrofitService {
 
     @GET("/3/gallery/t/{tagName}")
     fun getImagesByTag(@Path("tagName") tagName: String) : Call<BaseResponse<ImgurData>>
+
+    @GET("/3/gallery/{galleryHash}/tags")
+    fun getGalleryTags(@Path("galleryHash") galleryHash: String?) : Call<BaseResponse<List<ImgurTag>>>
 }
