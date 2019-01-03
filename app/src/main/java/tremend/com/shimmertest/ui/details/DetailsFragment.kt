@@ -1,6 +1,7 @@
 package tremend.com.shimmertest.ui.details
 
 import android.animation.ObjectAnimator
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.graphics.Path
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.PathInterpolator
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -74,7 +76,11 @@ class DetailsFragment : Fragment() {
     }
 
     private fun loadTags(galleryId: String?) {
-
+        viewModel.getTagsLiveData(galleryId).observe(this, Observer {
+            if(activity != null) {
+                Toast.makeText(activity, "Yey we have tags", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun loadVotes(upVotes: Int?, downVotes: Int?, totalPoints: Int?, totalViews: Int?) {
