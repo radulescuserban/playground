@@ -23,12 +23,13 @@ class TagsAdapter(private val tags: List<ImgurTag?>?) : RecyclerView.Adapter<Tag
 
     override fun onBindViewHolder(tagViewHolder: TagViewHolder, p1: Int) {
         tagViewHolder.itemView.tagNameTv.text = tags?.get(p1)?.name
-        val bundle = Bundle()
-        bundle.putString(Constants.KEY_IMGUR_TAG_NAME, tags?.get(p1)?.name)
-        tags?.get(p1)?.followers?.let { bundle.putInt(Constants.KEY_IMGUR_TAG_FOLLOWRS, it) }
-        tags?.get(p1)?.totalItems?.let { bundle.putInt(Constants.KEY_IMGUR_TAG_TOTAL_ITEMS, it) }
+        val action = DetailsFragmentDirections.actionDetailsFragmentToTagFragment()
+        tags?.get(p1)?.name?.let { action.tagName = it }
+        tags?.get(p1)?.followers?.let { action.followers = it }
+        tags?.get(p1)?.totalItems?.let { action.totalItems = it }
+
         tagViewHolder.itemView.setOnClickListener {
-            it.findNavController().navigate(R.id.action_detailsFragment_to_tagFragment, bundle)
+            it.findNavController().navigate(action)
         }
     }
 }

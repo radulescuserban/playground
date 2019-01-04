@@ -36,12 +36,23 @@
                 app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
-        <argument android:name="tagName" app:argType="string" android:defaultValue='""'/>
+                app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument android:name="tagName" app:argType="string" android:defaultValue='""'/>
+            <argument android:name="followers" app:argType="integer" android:defaultValue='0'/>
+            <argument android:name="totalItems" app:argType="integer" android:defaultValue='0'/>
+        </action>
+
     </fragment>
 
-    <fragment android:id="@+id/tagFragment" android:name="tremend.com.shimmertest.ui.tag.TagFragment"
-              android:label="tag_fragment" tools:layout="@layout/tag_fragment"/>
+    <fragment android:id="@+id/tagFragment"
+              android:name="tremend.com.shimmertest.ui.tag.TagFragment"
+              android:label="tag_fragment"
+              tools:layout="@layout/tag_fragment">
+        <argument android:name="tagName" app:argType="string" android:defaultValue='""'/>
+        <argument android:name="followers" app:argType="integer" android:defaultValue='0'/>
+        <argument android:name="totalItems" app:argType="integer" android:defaultValue='0'/>
+    </fragment>
+
     <fragment android:id="@+id/logoutFragment" android:name="tremend.com.shimmertest.ui.LogoutFragment"
               android:label="LogoutFragment"/>
 

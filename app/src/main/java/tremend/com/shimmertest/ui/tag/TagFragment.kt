@@ -29,9 +29,9 @@ class TagFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TagViewModel::class.java)
-        val tagName = arguments?.getString(Constants.KEY_IMGUR_TAG_NAME)
-        val tagFollowers = arguments?.getInt(Constants.KEY_IMGUR_TAG_FOLLOWRS)
-        val tagTotalItems = arguments?.getInt(Constants.KEY_IMGUR_TAG_TOTAL_ITEMS)
+        val tagName = arguments?.let { TagFragmentArgs.fromBundle(it).tagName }
+        val tagFollowers = arguments?.let { TagFragmentArgs.fromBundle(it).followers }
+        val tagTotalItems = arguments?.let { TagFragmentArgs.fromBundle(it).totalItems }
         setTexts(tagName, tagFollowers, tagTotalItems)
 
     }
