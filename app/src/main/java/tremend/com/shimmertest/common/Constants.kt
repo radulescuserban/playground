@@ -7,11 +7,17 @@ object Constants {
     const val IMGUR_IMAGE_TYPE_JPEG = "image/jpeg"
     const val IMGUR_IMAGE_TYPE_PNG = "image/png"
 
-    // Bundle
+    // Image Bundle
     const val KEY_IMGUR_ID = "KEY_ID"
     const val KEY_IMGUR_URL = "KEY_URL"
     const val KEY_IMGUR_POINTS = "KEY_POINTS"
     const val KEY_IMGUR_UPS = "KEY_UPS"
     const val KEY_IMGUR_DOWNS = "KEY_DOWNS"
     const val KEY_IMGUR_VIEWS = "KEY_VIEWS"
+
+    // Tag Bundle
+    const val KEY_IMGUR_TAG_NAME = "KEY_TAG_NAME"
+    const val KEY_IMGUR_TAG_FOLLOWRS = "KEY_TAG_FOLLOWERS"
+    const val KEY_IMGUR_TAG_TOTAL_ITEMS = "KEY_TAG_TOTAL_ITEMS"
+
 }
