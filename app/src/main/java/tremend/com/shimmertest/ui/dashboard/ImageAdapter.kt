@@ -30,7 +30,7 @@ class ImageAdapter(private val images: List<ImgurImage?>?) : RecyclerView.Adapte
         val requestOptions = RequestOptions()
             .diskCacheStrategy(DiskCacheStrategy.ALL)
 
-        Glide.with(imageViewHolder.itemView.imgurIv)
+        Glide.with(imageViewHolder.itemView)
             .applyDefaultRequestOptions(requestOptions)
             .load(images?.get(p1)?.link)
             .into(imageViewHolder.itemView.imgurIv)
