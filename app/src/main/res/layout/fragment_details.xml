@@ -12,6 +12,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:transitionName="image_header"
+            android:scaleType="centerCrop"
             android:contentDescription="header"
             app:layout_constraintDimensionRatio="4:3"
             app:layout_constraintTop_toTopOf="parent"
@@ -24,8 +25,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/headerIv"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-    >
+            app:layout_constraintEnd_toEndOf="parent">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -81,7 +81,6 @@
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/tagsRv"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="300"
-    />
+            tools:text="300"/>
 
 </android.support.constraint.ConstraintLayout>
