@@ -27,8 +27,19 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="2000"/>
 
+    <View
+            android:id="@+id/followersIndicator"
+            android:layout_width="2dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/small_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@color/colorAccent"
+            app:layout_constraintTop_toBottomOf="@+id/followersValueTv"
+            app:layout_constraintStart_toStartOf="parent"/>
+
     <TextView
-            android:id="@+id/follwersLabelTv"
+            android:id="@+id/followersLabelTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_header_size"
@@ -43,9 +54,8 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_header_size"
             android:layout_margin="@dimen/activity_vertical_margin"
-            app:layout_constraintTop_toBottomOf="@+id/followersValueTv"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="10000"/>
+            tools:text="10000" app:layout_constraintTop_toBottomOf="@+id/followersIndicator"/>
 
     <TextView
             android:id="@+id/itemsLabelTv"
@@ -54,7 +64,14 @@
             android:textSize="@dimen/text_header_size"
             android:layout_margin="@dimen/activity_vertical_margin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/follwersLabelTv"
-            tools:text="total items"/>
+            tools:text="total items" app:layout_constraintTop_toBottomOf="@+id/followersIndicator"/>
+
+    <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="next"
+    />
 
 </android.support.constraint.ConstraintLayout>

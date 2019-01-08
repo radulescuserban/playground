@@ -1,11 +1,14 @@
 package tremend.com.shimmertest.ui.tag
 
+import android.animation.ValueAnimator
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.tag_fragment.*
 
 import tremend.com.shimmertest.R
@@ -32,13 +35,47 @@ class TagFragment : Fragment() {
         val tagName = arguments?.let { TagFragmentArgs.fromBundle(it).tagName }
         val tagFollowers = arguments?.let { TagFragmentArgs.fromBundle(it).followers }
         val tagTotalItems = arguments?.let { TagFragmentArgs.fromBundle(it).totalItems }
-        setTexts(tagName, tagFollowers, tagTotalItems)
 
+        setTexts(tagName, tagFollowers, tagTotalItems)
+        animateValue(tagFollowers, followersValueTv)
+        animateValue(tagTotalItems, itemsValueTv)
+        animateIndicator(tagFollowers, followersIndicator)
+
+        nextBtn.setOnClickListener {
+            it.findNavController().navigate(R.id.action_tagFragment_to_secondActivity)
+        }
     }
 
     private fun setTexts(tagName: String?, tagFollowers: Int?, tagTotalItems: Int?) {
         tagNameTv.text = "Tag: $tagName"
-        followersValueTv.text = tagFollowers.toString()
-        itemsValueTv.text = tagTotalItems.toString()
+        followersValueTv.text = "0"
+        itemsValueTv.text = "0"
+
+        followersLabelTv.text = "followers"
+        itemsLabelTv.text = "total items"
+    }
+
+    private fun animateValue(value: Int?, textView: TextView) {
+        var floatValue = 500f
+        value?.let { floatValue = it.toFloat() }
+        ValueAnimator.ofFloat(0f, floatValue).apply {
+            duration = 1000
+            addUpdateListener {
+                textView.text = it.animatedValue.toString()
+            }
+            start()
+        }
+    }
+
+    private fun animateIndicator(value: Int?, view: View) {
+        var floatValue = 500f
+        value?.let { floatValue = it.toFloat() }
+        ValueAnimator.ofFloat(0f, floatValue).apply {
+            duration = 1000
+            addUpdateListener {
+                view.x = it.animatedValue as Float
+            }
+            start()
+        }
     }
 }

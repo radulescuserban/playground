@@ -51,9 +51,12 @@
         <argument android:name="tagName" app:argType="string" android:defaultValue='""'/>
         <argument android:name="followers" app:argType="integer" android:defaultValue='0'/>
         <argument android:name="totalItems" app:argType="integer" android:defaultValue='0'/>
+        <action android:id="@+id/action_tagFragment_to_secondActivity" app:destination="@id/secondActivity"/>
     </fragment>
 
     <fragment android:id="@+id/logoutFragment" android:name="tremend.com.shimmertest.ui.LogoutFragment"
               android:label="LogoutFragment"/>
+    <activity android:id="@+id/secondActivity" android:name="tremend.com.shimmertest.ui.SecondActivity"
+              android:label="SecondActivity"/>
 
 </navigation>
