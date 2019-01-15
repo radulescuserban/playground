@@ -54,9 +54,16 @@
         <action android:id="@+id/action_tagFragment_to_secondActivity" app:destination="@id/secondActivity"/>
     </fragment>
 
-    <fragment android:id="@+id/logoutFragment" android:name="tremend.com.shimmertest.ui.LogoutFragment"
+    <fragment android:id="@+id/logoutFragment"
+              android:name="tremend.com.shimmertest.ui.LogoutFragment"
               android:label="LogoutFragment"/>
-    <activity android:id="@+id/secondActivity" android:name="tremend.com.shimmertest.ui.SecondActivity"
+
+    <activity android:id="@+id/secondActivity"
+              android:name="tremend.com.shimmertest.ui.SecondActivity"
               android:label="SecondActivity"/>
+
+    <activity android:id="@+id/openGLActivity"
+              android:name="tremend.com.shimmertest.ui.opengl.OpenGLActivity"
+              android:label="OpenGLActivity"/>
 
 </navigation>

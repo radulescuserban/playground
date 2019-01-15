@@ -16,4 +16,9 @@
             android:icon="@drawable/ic_notifications_black_24dp"
             android:title="@string/title_notifications"/>
 
+    <item
+            android:id="@+id/openGLActivity"
+            android:title="@string/app_name"
+            android:icon="@drawable/ic_game_black_24dp"/>
+
 </menu>
