@@ -13,4 +13,16 @@ class OpenGLActivity : AppCompatActivity() {
         myGLSurfaceView = MyGLSurfaceView(this)
         setContentView(myGLSurfaceView)
     }
+
+    override fun onStart() {
+        super.onStart()
+        myGLSurfaceView.onResume()
+    }
+
+    override fun onStop() {
+        myGLSurfaceView.onPause()
+        super.onStop()
+    }
+
+
 }
