@@ -42,12 +42,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     // FB Shimmer
     implementation 'com.facebook.shimmer:shimmer:0.3.0'
+
     def nav_version = "1.0.0-alpha09"
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
     def lifecycle_version = "1.1.1"
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
@@ -62,4 +64,10 @@ dependencies {
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
     // Optional, if you use support library fragments:
     debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$leakcanary_version"
+
+    def rxAndroid = "2.1.0"
+    def rxJava = "2.2.5"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJava"
+
 }
