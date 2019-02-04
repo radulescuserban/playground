@@ -15,7 +15,7 @@ import tremend.com.shimmertest.network.RetrofitServiceFactory
 
 class DetailsViewModel : ViewModel() {
     companion object {
-        private const val TAG = "DashboardViewModel"
+        private const val TAG = "DetailsViewModel"
     }
 
     private val sharedPrefsManager = SharedPrefsManager(App.applicationContext())

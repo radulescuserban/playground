@@ -1,5 +1,6 @@
 package tremend.com.shimmertest.network
 
+import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -16,4 +17,7 @@ interface RetrofitService {
 
     @GET("/3/gallery/{galleryHash}/tags")
     fun getGalleryTags(@Path("galleryHash") galleryHash: String?) : Call<BaseResponse<List<ImgurTag>>>
+
+    @GET("3/tags")
+    fun getAllTags() : Observable<BaseResponse<String>>
 }
