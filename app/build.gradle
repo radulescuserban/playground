@@ -43,7 +43,7 @@ dependencies {
     // FB Shimmer
     implementation 'com.facebook.shimmer:shimmer:0.3.0'
 
-    def nav_version = "1.0.0-alpha09"
+    def nav_version = "1.0.0-alpha11"
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
 
