@@ -31,6 +31,14 @@
         </activity>
         <activity android:name=".ui.SecondActivity"/>
         <activity android:name=".ui.opengl.OpenGLActivity"/>
+
+        <receiver android:name=".app.MyBroadcastReceiver"  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED" />
+            </intent-filter>
+        </receiver>
     </application>
+
 
 </manifest>
