@@ -1,6 +1,6 @@
 package tremend.com.shimmertest.common
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import java.math.BigDecimal
 
 class StockLiveData(symbol: String) : LiveData<BigDecimal>() {

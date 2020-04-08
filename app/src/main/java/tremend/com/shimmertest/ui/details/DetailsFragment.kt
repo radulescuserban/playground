@@ -1,13 +1,13 @@
 package tremend.com.shimmertest.ui.details
 
 import android.animation.ObjectAnimator
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.transition.ChangeBounds
-import android.support.transition.TransitionInflater
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import androidx.transition.ChangeBounds
+import androidx.transition.TransitionInflater
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -119,7 +119,12 @@ class DetailsFragment : Fragment() {
     }
 
     private fun setupTagsRv(tags: List<ImgurTag?>?) {
-        val linearLayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val linearLayoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(
+                activity,
+                androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+                false
+            )
         tagsRv.layoutManager = linearLayoutManager
         val adapter = TagsAdapter(tags)
         tagsRv.adapter = adapter

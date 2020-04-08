@@ -1,6 +1,6 @@
 package tremend.com.shimmertest.ui.notifications
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 class NotificationsViewModel : ViewModel() {
     // TODO: Implement the ViewModel

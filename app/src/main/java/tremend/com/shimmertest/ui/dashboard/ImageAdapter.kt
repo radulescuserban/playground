@@ -1,8 +1,8 @@
 package tremend.com.shimmertest.ui.dashboard
 
 import android.os.Bundle
-import android.support.v4.view.ViewCompat
-import android.support.v7.widget.RecyclerView
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +16,7 @@ import tremend.com.shimmertest.R
 import tremend.com.shimmertest.common.Constants
 import tremend.com.shimmertest.network.ImgurImage
 
-class ImageAdapter(private val images: List<ImgurImage?>?) : RecyclerView.Adapter<ImageViewHolder>() {
+class ImageAdapter(private val images: List<ImgurImage?>?) : androidx.recyclerview.widget.RecyclerView.Adapter<ImageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view = LayoutInflater.from(parent.context)

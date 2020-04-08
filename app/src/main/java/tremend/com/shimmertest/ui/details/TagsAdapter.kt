@@ -1,7 +1,7 @@
 package tremend.com.shimmertest.ui.details
 
 import android.os.Bundle
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import tremend.com.shimmertest.R
 import tremend.com.shimmertest.common.Constants
 import tremend.com.shimmertest.network.ImgurTag
 
-class TagsAdapter(private val tags: List<ImgurTag?>?) : RecyclerView.Adapter<TagViewHolder>() {
+class TagsAdapter(private val tags: List<ImgurTag?>?) : androidx.recyclerview.widget.RecyclerView.Adapter<TagViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagViewHolder {
         val view = LayoutInflater.from(parent.context)

@@ -1,6 +1,6 @@
 package tremend.com.shimmertest.ui.home
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import tremend.com.shimmertest.app.App

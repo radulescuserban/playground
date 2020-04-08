@@ -1,6 +1,6 @@
 package tremend.com.shimmertest.ui.tag
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 class TagViewModel : ViewModel() {
     // TODO: Implement the ViewModel
