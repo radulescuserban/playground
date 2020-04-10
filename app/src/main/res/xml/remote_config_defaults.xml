@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <key name="remote_string_test">first default remote config</key>
+    <key name="ab_test">default ab test value</key>
+    <key name="ac_test">default ac test value</key>
+</resources>

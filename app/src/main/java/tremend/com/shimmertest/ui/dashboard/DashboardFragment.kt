@@ -8,8 +8,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import tremend.com.shimmertest.R
+import tremend.com.shimmertest.app.App
 
 
 class DashboardFragment : Fragment() {
@@ -35,6 +37,8 @@ class DashboardFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        getRemoteConfigValues()
+
         Log.d(TAG, "onStart")
         observeViewModel()
     }
@@ -64,6 +68,37 @@ class DashboardFragment : Fragment() {
             val adapter = ImageAdapter(it)
             recyclerView.adapter = adapter
         })
+    }
+
+    private fun getRemoteConfigValues() {
+        App.applicationContext().remoteConfig
+            ?.fetchAndActivate()
+            ?.addOnCompleteListener(activity!!) { task ->
+                if (task.isSuccessful) {
+                    val remoteConfig = task.result
+                    Toast.makeText(
+                        activity!!, "Fetch and activate succeeded",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    testDefaultConfig()
+                } else {
+                    Toast.makeText(
+                        activity!!, "Fetch failed",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+    }
+
+    private fun testDefaultConfig() {
+        val testString = App.applicationContext().remoteConfig
+            ?.getString("remote_string_test")
+        Log.d(TAG, testString)
+
+        val testAb = App.applicationContext().remoteConfig
+            ?.getString("ab_test")
+        Log.d(TAG, testAb)
     }
 
 }
