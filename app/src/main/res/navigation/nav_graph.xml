@@ -7,7 +7,11 @@
     <fragment android:id="@+id/homeFragment"
               android:name="tremend.com.shimmertest.ui.home.HomeFragment"
               android:label="fragment_home"
-              tools:layout="@layout/fragment_home"/>
+              tools:layout="@layout/fragment_home">
+
+        <action android:id="@+id/action_homeFragment_to_redditPostsFragment" app:destination="@id/redditPostsFragment"/>
+
+    </fragment>
 
     <fragment android:id="@+id/dashboardFragment"
               android:name="tremend.com.shimmertest.ui.dashboard.DashboardFragment"
@@ -65,5 +69,11 @@
     <activity android:id="@+id/openGLActivity"
               android:name="tremend.com.shimmertest.ui.opengl.OpenGLActivity"
               android:label="OpenGLActivity"/>
+
+    <fragment android:id="@+id/redditPostsFragment"
+        android:name="tremend.com.shimmertest.ui.redditPosts.RedditPostsFragment"
+        android:label="RedditPostsFragment"
+        tools:layout="@layout/fragment_reddit_posts">
+    </fragment>
 
 </navigation>

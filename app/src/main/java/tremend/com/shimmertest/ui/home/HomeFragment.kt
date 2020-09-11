@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import io.reactivex.functions.BiFunction
 import kotlinx.android.synthetic.main.fragment_home.*
 import rx.Observable
@@ -48,6 +49,10 @@ class HomeFragment : Fragment() {
 
 //        listenRx2textChanged()
 //        testRx2ZipFunction()
+
+        redditBtn.setOnClickListener {
+            it.findNavController().navigate(R.id.action_homeFragment_to_redditPostsFragment)
+        }
     }
 
     private fun makeRxCalls() {
