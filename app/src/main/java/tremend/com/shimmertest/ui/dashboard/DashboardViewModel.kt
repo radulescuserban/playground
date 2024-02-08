@@ -1,9 +1,9 @@
 package tremend.com.shimmertest.ui.dashboard
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel;
-import android.util.Log
+import androidx.lifecycle.ViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,7 +38,10 @@ class DashboardViewModel : ViewModel() {
                 Log.d(TAG, "fail ${t.printStackTrace()}")
             }
 
-            override fun onResponse(call: Call<BaseResponse<ImgurData>>, response: Response<BaseResponse<ImgurData>>) {
+            override fun onResponse(
+                call: Call<BaseResponse<ImgurData>>,
+                response: Response<BaseResponse<ImgurData>>
+            ) {
                 if (response.isSuccessful) {
                     Log.d(TAG, "success ${response.body()?.data?.items?.size}")
                     var imagesList = ArrayList<ImgurImage>()

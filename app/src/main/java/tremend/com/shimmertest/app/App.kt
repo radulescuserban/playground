@@ -5,7 +5,9 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
-import com.squareup.leakcanary.LeakCanary
+import leakcanary.AppWatcher
+import leakcanary.FragmentAndViewModelWatcher
+import leakcanary.LeakCanary
 import tremend.com.shimmertest.R
 
 class App : Application() {
@@ -26,12 +28,12 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return
-        }
-        LeakCanary.install(this)
+        val watchersToInstall = AppWatcher.appDefaultWatchers(this)
+            .filter { it !is FragmentAndViewModelWatcher }
+        AppWatcher.manualInstall(
+            application = this,
+            watchersToInstall = watchersToInstall
+        )
 
         remoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {

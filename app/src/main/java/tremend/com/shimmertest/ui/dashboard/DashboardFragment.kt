@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+import androidx.recyclerview.widget.RecyclerView
 import tremend.com.shimmertest.R
 import tremend.com.shimmertest.app.App
 
@@ -23,11 +23,15 @@ class DashboardFragment : Fragment() {
 
     private lateinit var viewModel: DashboardViewModel
 
+    private lateinit var recyclerView: RecyclerView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        recyclerView = view.findViewById(R.id.recyclerView)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -94,11 +98,11 @@ class DashboardFragment : Fragment() {
     private fun testDefaultConfig() {
         val testString = App.applicationContext().remoteConfig
             ?.getString("remote_string_test")
-        Log.d(TAG, testString)
+        Log.d(TAG, testString ?: "")
 
         val testAb = App.applicationContext().remoteConfig
             ?.getString("ab_test")
-        Log.d(TAG, testAb)
+        Log.d(TAG, testAb ?: "")
     }
 
 }
